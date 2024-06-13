@@ -1,3 +1,20 @@
+# ingest director of gpx
+
+I am using gpxpy, and polars to ingest all .gpx files in a data folder & preprocess for analytics. For each of the gpx files, I would like to add elevation (feet) & speed (mph) data to all points on track. I would like to separate the tracks based on the date of the timestamp of latitude and longitude coordinates. There are over 100 individually tracked rides within these GPX files, but when read only 19 tracks are being counted. If parts of the track don't have time(stamp)s recorded, this option will try to extrapolate and add them where possible.
+
+
+
+gpx files should be ingested, parsed & loaded into a polars dataframe identified by "track_id" which is the date of the start_timestamp. The Latitude and Longitude GPS data should be smoothed & any noise or errors filtered out (> 100 mph). Then the tracks can be smoothed and compressed. From here we will calculate analytics like total distance traveled, total trip duration, Steepness, turn angle, and Tortuosity will also be measured. 
+
+
+
+Ultimately, the goal of this process is to answer details about "What Kind of Driver is this??"
+
+
+-----
+
+
+
 I am building a data report that profiles everytime I took my Polaris RZR vehicle riding. I have the location data (datetime_local, latitude, longitude, device_id) in the dataframe `jc_rzr_ALL`. A full schema is provided below. This report will highlight summary statistics about my riding habits that can be used to build a picture of what kind of rider I am. Do I ride mostly weekends? How many long-distance Trips, or well known RZR riding locations did I visit? What was my average speed, min and max speed? how many total miles traveled? Where is my home located (city, state). In this message, please assist in generating the following:
 
 please demonstrate the best way to re-create the GitHub commit visualization, where annual timeline is boxed out by days & the intensity of the day represents how long the rides were that day. So in essence, a heatmap of all my rides. You can use the `calplot`, `plotly` or the `seaborn` library to create the heatmap. 
